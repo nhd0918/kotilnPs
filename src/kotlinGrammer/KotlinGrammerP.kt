@@ -245,10 +245,61 @@ fun main() {
     // val str = "" , val number = 0
     var nullTest : String = ""
 
-    println(find2(null))
+    //println(find2(null))
 
+    // Any 이름 처럼 아무거나 할수있는 느낌??
+    // Java -> Object 최상위 클래스이다
+    // is <-> 맞나? 확인
+    // as <-> 타입 체크
+    var str2 : Any = "abc"
 
+    if( str2 is String ) {
+      //  println("this is string")
+    } else {
+      //  println("this is not string")
+    }
+
+    when(str2) {
+      //  is Int -> println("this is Int")
+       // is String -> println("this is String")
+       // else -> println("no type")
+    }
+
+    // 타입 캐스팅이 되는경우 안되는경우에 따라서 값이 달라짐
+    var str3 : String? = "aaa" as? String
+    println(str3)
+
+    // list 가공하기
+    val testL0 = mutableListOf<Int>()
+    testL0.add(1)
+    testL0.add(3)
+    testL0.add(5)
+    testL0.add(7)
+    testL0.add(7)
+    // 중복 제거
+    //println(testL0.distinct())
+    // 가장 큰값
+    //println(testL0.maxOrNull())
+    // 가장 작은값
+    //println(testL0.minOrNull())
+
+    val testL01 = listOf("a","b","c","d")
+    val res = testL01.filter { it.startsWith("a") }
+    // println(res)
+
+    val testL02 = listOf(1,2,3,4,5)
+    val res01 = testL02.filter {
+        it % 2 == 0
+    }
+
+    // 그룹화를 하고싶다.
+    val testL03 = listOf("a","aa","aaa","aaaa")
+    val res02 = testL03.groupBy { it.length > 2 }
+    println(res02[true])
 }
+
+
+
 // 엘비스 연산자의 이점은? 비슷하게사용하는 다른 문법은?
 fun find2(str : String?): Int {
     return str?.length ?: 0
