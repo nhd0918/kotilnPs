@@ -9,26 +9,17 @@ import kotlin.math.max
 * 알파벳 대문자를 10부터 시작하여 A ~ Z까지의 수를
 * * * */
 fun main() {
-    // 기본적인 배열
-    val arr = Array(5) { IntArray(5) }
-    // 가변 배열
-    val arr1 = mutableListOf<Array<String>>()
-    // 배열 MAP
-    val map: Map<String,Int> = mapOf(
-        "1" to 2
-    )
+    val nums = listOf<Int>(2,3,4,5)
+    val t = 9
+    val arr = IntArray(2)
 
-    for(i in 0 until 5) {
-        for(j in 0 until 5) {
-            arr[i][j] = i
+    for(i in nums.indices) {
+        if( nums.size - 1 != i) {
+            if( t == nums[i] + nums[i + 1] ) {
+                arr[0] = i
+                arr[1] = i + 1
+            }
         }
-    }
-
-    for(i in 0 until 5) {
-        for(j in 0 until 5) {
-            print("${arr[i][j]}")
-        }
-        println()
     }
 
 }
